@@ -2,12 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using IB.DC.Model.Entity;
 using IB.DC.Data;
 using System.Net;
-using System.IO;
+using System.Text.RegularExpressions;
 
 namespace IB.DC.Business
 {
@@ -25,47 +23,49 @@ namespace IB.DC.Business
 
             var sc = new SpacesController();
 
-            List<int> vagastemp= new List<int> ();
-            /*
-            HttpWebRequest requisicao = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse resposta = (HttpWebResponse)requisicao.GetResponse();
+            var pg = new Pagina();
 
-            int cont;
-            byte[] buffer = new byte[1000];
-            StringBuilder sb = new StringBuilder();
-            string temp;
+            string pagina = "";
 
-            Stream stream = resposta.GetResponseStream();
-
-            do
+            List <int> vagastemp= new List<int> ();
+            try
             {
-                cont = stream.Read(buffer, 0, buffer.Length);
-                temp = Encoding.Default.GetString(buffer, 0, cont).Trim();
-                sb.Append(temp);
-
-            } while (cont > 0);
-
-            string pagina = sb.ToString();
-            */
-            /*
-            if (pagina.IndexOf("<font color=\"black\">CEP NAO ENCONTRADO</font>") >= 0)
-            {
-                //string logradouro = Regex.Match(pagina, "<td width=\"268\" style=\"padding: 2px\">(.*)</td>").Groups[1].Value;
+                WebClient _cli = new WebClient(); //Criação do componente para carregamento da Pagina HTML
+                pagina = _cli.DownloadString(url); //Leitura da pagina HTML
             }
-            */
-            for (int i = 1; i <= 500; i++)
+            catch (Exception e)
             {
-                vagastemp.Add(i);
+                throw e;
             }
-            Random rnd = new Random();
-            var randomNumbers = Enumerable.Range(1, vagastemp.Count).OrderBy(i => rnd.Next()).ToArray();
-            sp.andar = "1 SS";
-            sp.vagas_disponiveis = randomNumbers[10];
-            sp.vagas_totais = 500;
-            sp.vagas_ocupadas = sp.vagas_totais - sp.vagas_disponiveis;
-            Salvar(sp);
 
-            _spaces.Add(sp);
+            pg.conteudo = pagina;
+            SalvarPagina(pg);
+            string _vagasTotais = "Vazio";
+            string _vagasLivres = "Vazio";
+            string _andar = "Vazio";
+            if (pagina.IndexOf("<input type=\"text\" name=\"{DT_30_") >= 0)
+            {
+                //logradouro = Regex.Match(pagina, "<input name=\"{DT_30_.*? value=\"(.*)\".*? > ").Groups[1].Value;
+                string pattern1 = "<input type=\"text\" name=\"{DT_30_.*?=\"(.+?)\""; //pattern para vagas totais
+                string pattern2 = "<div class=\"id2\">(.+?)</div>"; //pattern para andar
+                string pattern3 = "<input type=\"text\" name=\"{DT_31_.*?=\"(.+?)\""; //pattern para vagas livres
+
+                MatchCollection matches1 = Regex.Matches(pagina, pattern1);
+                MatchCollection matches2 = Regex.Matches(pagina, pattern2);
+                MatchCollection matches3 = Regex.Matches(pagina, pattern3);
+                //MessageBox.Show("Matches found: " + matches3.Count);
+
+                for (int i = 0; i < matches1.Count; i++)
+                {
+                    sp = new Space();
+                    sp.andar = matches2[i + 1].Groups[1].Value.Trim();
+                    sp.vagas_totais = long.Parse(matches1[i].Groups[1].Value.Trim());
+                    sp.vagas_disponiveis = long.Parse(matches3[i].Groups[1].Value.Trim());
+                    sp.vagas_ocupadas = sp.vagas_totais - sp.vagas_disponiveis;
+                    Salvar(sp);
+                    _spaces.Add(sp);
+                }
+            }
 
             return _spaces;
         }
@@ -97,6 +97,91 @@ namespace IB.DC.Business
             db.Spaces.Add(obj);
             db.SaveChanges();
             return obj;
+        }
+
+        public Pagina SalvarPagina(Pagina obj)
+        {
+            var db = new Contexto();
+
+            db.Paginas.Add(obj);
+            db.SaveChanges();
+            return obj;
+        }
+
+        List<Space> ISpacesController.ColletarDados(string url)
+        {
+            throw new NotImplementedException();
+        }
+
+        void ISpacesController.Excluir(Space obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<SpaceReport> ISpacesController.GerarRelatorio(int tipo, DateTime dt_ini, DateTime dt_fim, List<SpaceReport> obj)
+        {
+            var db = new Contexto();
+            List<SpaceReport> retorno = new List<SpaceReport>();
+            string s = "";
+            int total_registros = 0;
+            long vagas_ocupadas = 0;
+            long vagas_total = 0;
+            double vagas = 0;
+            double percent = 0;
+            var query = from d in db.Spaces select d;
+            for (int i = 0; i<obj.Count; i++)
+            {
+                s = obj[i].andar;
+                query = query.Where(d => d.timestamp >= dt_ini && d.timestamp <= dt_fim && d.andar==s);
+                total_registros = query.Count();
+                vagas_ocupadas = 0;
+                vagas_total = 0;
+                percent = 0;
+
+                if (query.Count() > 0) { 
+                    foreach (Space sp in query)
+                    {
+                        vagas_ocupadas += sp.vagas_ocupadas;
+                        vagas_total += sp.vagas_totais;
+                    }
+                    vagas = vagas_ocupadas / total_registros;
+                    vagas_total = vagas_total / total_registros;
+                    double d = 100;
+                    if (vagas > 0) { 
+                    percent = vagas/ (vagas_total / d);
+                    }
+                    else
+                    {
+                        percent = 0;
+                    }
+                    obj[i].vagas_ocupadas = long.Parse(Math.Round(vagas).ToString());
+                    obj[i].vagas_totais = vagas_total;
+                    obj[i].vagas_ocupadas_percent = int.Parse(Math.Round(percent).ToString());
+                    retorno.Add(obj[i]);
+                }
+            }
+
+            return retorno;
+        }
+
+        List<Space> ISpacesController.ListarPorAndar(long andar)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Space> ISpacesController.ListarPorPeriodo(DateTime dt_ini, DateTime dt_fim)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Space> ISpacesController.ListarTudo()
+        {
+            throw new NotImplementedException();
+        }
+
+        Space ISpacesController.Salvar(Space obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace IB.DC.Data
     {
         // Entities to map
         public DbSet<Space> Spaces { get; set; }
+        public DbSet<Pagina> Paginas { get; set; }
 
         public Contexto()
         {

@@ -33,7 +33,7 @@ namespace IB.DC.Teste
             sp.vagas_totais = 500;
             sp.vagas_ocupadas = sp.vagas_totais - sp.vagas_disponiveis;
 
-            sc.ColletarDados("teste");
+            sc.ColletarDados("file://D:/Temp/Senado2.htm");
             Console.Write(sp.ID + "|" + sp.vagas_ocupadas + "|" + sp.timestamp);
             Console.ReadKey();
         }

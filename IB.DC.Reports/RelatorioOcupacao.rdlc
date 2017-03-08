@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>3.15263cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.36903cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>4.44592cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>5.4898cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.67937cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Andar</Value>
+                              <Style>
+                                <FontFamily>calibri</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Total de Vagas</Value>
+                              <Style>
+                                <FontFamily>calibri</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Vagas ocupadas no período</Value>
+                              <Style>
+                                <FontFamily>calibri</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Perc.  vagas ocupadas no período</Value>
+                              <Style>
+                                <FontFamily>calibri</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="andar">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!andar.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>andar</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="vagas_totais">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!vagas_totais.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>vagas_totais</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="vagas_ocupadas">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!vagas_ocupadas.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>vagas_ocupadas</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <rd:Selected>true</rd:Selected>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="vagas_ocupadas_percent1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!vagas_ocupadas_percent.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>vagas_ocupadas_percent1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>SpaceReportDS</DataSetName>
+        <Top>0.49953cm</Top>
+        <Left>0.26458cm</Left>
+        <Height>1.27937cm</Height>
+        <Width>16.45738cm</Width>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Chart Name="Chart1">
+        <ChartCategoryHierarchy>
+          <ChartMembers>
+            <ChartMember>
+              <Group Name="Chart1_CategoryGroup">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!andar.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!andar.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <Label>=Fields!andar.Value</Label>
+            </ChartMember>
+          </ChartMembers>
+        </ChartCategoryHierarchy>
+        <ChartSeriesHierarchy>
+          <ChartMembers>
+            <ChartMember>
+              <Label>vagas ocupadas</Label>
+            </ChartMember>
+          </ChartMembers>
+        </ChartSeriesHierarchy>
+        <ChartData>
+          <ChartSeriesCollection>
+            <ChartSeries Name="vagas_ocupadas">
+              <ChartDataPoints>
+                <ChartDataPoint>
+                  <ChartDataPointValues>
+                    <Y>=Sum(Fields!vagas_ocupadas.Value)</Y>
+                  </ChartDataPointValues>
+                  <ChartDataLabel>
+                    <Style />
+                  </ChartDataLabel>
+                  <Style />
+                  <ChartMarker>
+                    <Style />
+                  </ChartMarker>
+                  <DataElementOutput>Output</DataElementOutput>
+                </ChartDataPoint>
+              </ChartDataPoints>
+              <Style />
+              <ChartEmptyPoints>
+                <Style />
+                <ChartMarker>
+                  <Style />
+                </ChartMarker>
+                <ChartDataLabel>
+                  <Style />
+                </ChartDataLabel>
+              </ChartEmptyPoints>
+              <ValueAxisName>Primary</ValueAxisName>
+              <CategoryAxisName>Primary</CategoryAxisName>
+              <ChartSmartLabel>
+                <CalloutLineColor>Black</CalloutLineColor>
+                <MinMovingDistance>0pt</MinMovingDistance>
+              </ChartSmartLabel>
+            </ChartSeries>
+          </ChartSeriesCollection>
+        </ChartData>
+        <ChartAreas>
+          <ChartArea Name="Default">
+            <ChartCategoryAxes>
+              <ChartAxis Name="Primary">
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <ChartAxisTitle>
+                  <Caption>Andar</Caption>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </ChartAxisTitle>
+                <ChartMajorGridLines>
+                  <Enabled>False</Enabled>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                    </Border>
+                  </Style>
+                </ChartMajorGridLines>
+                <ChartMinorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                      <Style>Dotted</Style>
+                    </Border>
+                  </Style>
+                </ChartMinorGridLines>
+                <ChartMinorTickMarks>
+                  <Length>0.5</Length>
+                </ChartMinorTickMarks>
+                <CrossAt>NaN</CrossAt>
+                <Minimum>NaN</Minimum>
+                <Maximum>NaN</Maximum>
+                <ChartAxisScaleBreak>
+                  <Style />
+                </ChartAxisScaleBreak>
+              </ChartAxis>
+              <ChartAxis Name="Secondary">
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <ChartAxisTitle>
+                  <Caption>Axis Title</Caption>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </ChartAxisTitle>
+                <ChartMajorGridLines>
+                  <Enabled>False</Enabled>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                    </Border>
+                  </Style>
+                </ChartMajorGridLines>
+                <ChartMinorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                      <Style>Dotted</Style>
+                    </Border>
+                  </Style>
+                </ChartMinorGridLines>
+                <ChartMinorTickMarks>
+                  <Length>0.5</Length>
+                </ChartMinorTickMarks>
+                <CrossAt>NaN</CrossAt>
+                <Location>Opposite</Location>
+                <Minimum>NaN</Minimum>
+                <Maximum>NaN</Maximum>
+                <ChartAxisScaleBreak>
+                  <Style />
+                </ChartAxisScaleBreak>
+              </ChartAxis>
+            </ChartCategoryAxes>
+            <ChartValueAxes>
+              <ChartAxis Name="Primary">
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <ChartAxisTitle>
+                  <Caption>Vagas Ocupadas</Caption>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </ChartAxisTitle>
+                <ChartMajorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                    </Border>
+                  </Style>
+                </ChartMajorGridLines>
+                <ChartMinorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                      <Style>Dotted</Style>
+                    </Border>
+                  </Style>
+                </ChartMinorGridLines>
+                <ChartMinorTickMarks>
+                  <Length>0.5</Length>
+                </ChartMinorTickMarks>
+                <CrossAt>NaN</CrossAt>
+                <Minimum>NaN</Minimum>
+                <Maximum>NaN</Maximum>
+                <ChartAxisScaleBreak>
+                  <Style />
+                </ChartAxisScaleBreak>
+              </ChartAxis>
+              <ChartAxis Name="Secondary">
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+                <ChartAxisTitle>
+                  <Caption>Axis Title</Caption>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </ChartAxisTitle>
+                <ChartMajorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                    </Border>
+                  </Style>
+                </ChartMajorGridLines>
+                <ChartMinorGridLines>
+                  <Style>
+                    <Border>
+                      <Color>Gainsboro</Color>
+                      <Style>Dotted</Style>
+                    </Border>
+                  </Style>
+                </ChartMinorGridLines>
+                <ChartMinorTickMarks>
+                  <Length>0.5</Length>
+                </ChartMinorTickMarks>
+                <CrossAt>NaN</CrossAt>
+                <Location>Opposite</Location>
+                <Minimum>NaN</Minimum>
+                <Maximum>NaN</Maximum>
+                <ChartAxisScaleBreak>
+                  <Style />
+                </ChartAxisScaleBreak>
+              </ChartAxis>
+            </ChartValueAxes>
+            <Style>
+              <BackgroundGradientType>None</BackgroundGradientType>
+            </Style>
+          </ChartArea>
+        </ChartAreas>
+        <ChartLegends>
+          <ChartLegend Name="Default">
+            <Style>
+              <BackgroundGradientType>None</BackgroundGradientType>
+              <FontSize>8pt</FontSize>
+            </Style>
+            <ChartLegendTitle>
+              <Caption />
+              <Style>
+                <FontSize>8pt</FontSize>
+                <FontWeight>Bold</FontWeight>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </ChartLegendTitle>
+            <HeaderSeparatorColor>Black</HeaderSeparatorColor>
+            <ColumnSeparatorColor>Black</ColumnSeparatorColor>
+          </ChartLegend>
+        </ChartLegends>
+        <ChartTitles>
+          <ChartTitle Name="Default">
+            <Caption>Gráfico de Ocupação</Caption>
+            <Style>
+              <BackgroundGradientType>None</BackgroundGradientType>
+              <FontWeight>Bold</FontWeight>
+              <TextAlign>General</TextAlign>
+              <VerticalAlign>Top</VerticalAlign>
+            </Style>
+          </ChartTitle>
+        </ChartTitles>
+        <Palette>BrightPastel</Palette>
+        <ChartBorderSkin>
+          <Style>
+            <BackgroundColor>Gray</BackgroundColor>
+            <BackgroundGradientType>None</BackgroundGradientType>
+            <Color>White</Color>
+          </Style>
+        </ChartBorderSkin>
+        <ChartNoDataMessage Name="NoDataMessage">
+          <Caption>No Data Available</Caption>
+          <Style>
+            <BackgroundGradientType>None</BackgroundGradientType>
+            <TextAlign>General</TextAlign>
+            <VerticalAlign>Top</VerticalAlign>
+          </Style>
+        </ChartNoDataMessage>
+        <DataSetName>SpaceReportDS</DataSetName>
+        <Top>2.96016cm</Top>
+        <Left>0.26458cm</Left>
+        <Height>5.47625cm</Height>
+        <Width>16.45738cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Color>LightGrey</Color>
+            <Style>Solid</Style>
+          </Border>
+          <BackgroundColor>White</BackgroundColor>
+          <BackgroundGradientType>None</BackgroundGradientType>
+        </Style>
+      </Chart>
+    </ReportItems>
+    <Height>89.1266mm</Height>
+    <Style />
+  </Body>
+  <Width>167.21962mm</Width>
+  <Page>
+    <PageHeader>
+      <Height>3.34891cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox15">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>RELATÓRIO DE OCUPAÇÃO POR PERÍODO</Value>
+                  <Style>
+                    <FontFamily>calibri</FontFamily>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>.</Value>
+                  <Style>
+                    <FontSize>11pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox15</rd:DefaultName>
+          <Top>1.33215cm</Top>
+          <Left>0.26458cm</Left>
+          <Height>0.59118cm</Height>
+          <Width>16.45738cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <BackgroundColor>Silver</BackgroundColor>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="Logo">
+          <Source>Embedded</Source>
+          <Value>Logo</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.28195cm</Top>
+          <Left>11.82492cm</Left>
+          <Height>0.94437cm</Height>
+          <Width>4.89704cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="Textbox4">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>SERVIÇOS COMPARTILHADOS</Value>
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>Calibri</FontFamily>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>0.58787cm</Top>
+          <Left>0.26458cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.38396cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Line Name="Line1">
+          <Top>2.13182cm</Top>
+          <Left>0.26458cm</Left>
+          <Height>0cm</Height>
+          <Width>16.45738cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+              <Width>1.5pt</Width>
+            </Border>
+          </Style>
+        </Line>
+        <Line Name="Line2">
+          <Top>3.17252cm</Top>
+          <Left>0.26458cm</Left>
+          <Height>0cm</Height>
+          <Width>16.45738cm</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+              <Width>1.5pt</Width>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="dt_ini1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Período: " + First(Fields!dt_ini.Value, "SpaceReportDS") + " até " + First(Fields!dt_fim.Value, "SpaceReportDS")</Value>
+                  <Style>
+                    <FontFamily>Calibri</FontFamily>
+                    <FontSize>12pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>dt_ini1</rd:DefaultName>
+          <Top>2.30821cm</Top>
+          <Left>0.26458cm</Left>
+          <Height>0.6cm</Height>
+          <Width>16.45738cm</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="IBDCModelEntity">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>83f6f969-fff9-4871-9f71-99a805f0eb54</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="SpaceReportDS">
+      <Query>
+        <DataSourceName>IBDCModelEntity</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="andar">
+          <DataField>andar</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dt_fim">
+          <DataField>dt_fim</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="dt_ini">
+          <DataField>dt_ini</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="vagas_disponiveis">
+          <DataField>vagas_disponiveis</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="vagas_ocupadas">
+          <DataField>vagas_ocupadas</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="vagas_ocupadas_percent">
+          <DataField>vagas_ocupadas_percent</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="vagas_totais">
+          <DataField>vagas_totais</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>IB.DC.Model.Entity</rd:DataSetName>
+        <rd:TableName>SpaceReport</rd:TableName>
+        <rd:ObjectDataSourceType>IB.DC.Model.Entity.SpaceReport, IB.DC.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="Logo">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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
+AABJRU5ErkJggg==</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>d1761cba-ca3b-46c9-a78f-0974f6806efa</rd:ReportID>
+</Report>

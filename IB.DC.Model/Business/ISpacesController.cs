@@ -15,5 +15,6 @@ namespace IB.DC.Model.Business
         List<Space> ListarPorPeriodo(DateTime dt_ini, DateTime dt_fim);
         List<Space> ListarPorAndar(long andar);
         List<Space> ColletarDados(string url);
+        List<SpaceReport> GerarRelatorio(int tipo, DateTime dt_ini, DateTime dt_fim, List<SpaceReport> obj);
     }
 }

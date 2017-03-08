@@ -18,10 +18,19 @@ namespace IB.DC.Service
     {
         private int eventId;
         Timer timer1;
+        string path = "";
 
         public IBService()
         {
             InitializeComponent();
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            path = (System.IO.Path.GetDirectoryName(executable));
+            path = System.IO.Path.Combine(path, "DB");
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            bool exists = System.IO.Directory.Exists(path);
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory(path);
             eventLog1 = new System.Diagnostics.EventLog();
             if (!System.Diagnostics.EventLog.SourceExists("IB DataCollector"))
             {
@@ -51,7 +60,7 @@ namespace IB.DC.Service
             string log="";
             // TODO: Insert monitoring activities here.
             if (Collect()) { 
-                eventLog1.WriteEntry("Iniciando coleta de dados.", EventLogEntryType.Information, eventId++);
+                eventLog1.WriteEntry("Iniciando coleta de dados. \n" + path, EventLogEntryType.Information, eventId++);
                 try
                 {
                     var sc = new SpacesController();
@@ -88,6 +97,12 @@ namespace IB.DC.Service
             intervalo = Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings["Intervalo"]);
             switch(intervalo)
             {
+                case 1:
+                    if (minuto == 0)
+                    {
+                        resposta = true;
+                    }
+                    break;
                 case 2:
                     if (minuto == 0 || minuto==30)
                     {
@@ -95,16 +110,13 @@ namespace IB.DC.Service
                     }
                     break;
                 case 3:
-                    if (minuto == 0 || minuto==15 || minuto==30 || minuto==45)
+                    if (minuto == 0 || minuto == 15 || minuto == 30 || minuto == 45)
                     {
                         resposta = true;
                     }
                     break;
                 default:
-                    if (minuto == 0)
-                    {
                         resposta = true;
-                    }
                     break;
 
             }

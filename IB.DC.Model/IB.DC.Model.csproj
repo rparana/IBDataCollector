@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\ISpacesController.cs" />
+    <Compile Include="Entity\ListAndar.cs" />
+    <Compile Include="Entity\Pagina.cs" />
+    <Compile Include="Entity\SpaceReport.cs" />
     <Compile Include="Entity\Space.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

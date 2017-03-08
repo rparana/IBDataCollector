@@ -65,6 +65,8 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="startservices.cmd" />
+    <None Include="stopservices.cmd" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="IBService.resx">
